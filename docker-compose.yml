@@ -1,0 +1,24 @@
+services:
+  quota:
+    build: .
+    image: lmwn-openrouter-quota
+    container_name: lmwn-openrouter-quota
+    restart: unless-stopped
+    environment:
+      # Supplied at run time only. Compose reads it from your shell or from ./.env.
+      # A value exported in the shell wins over ./.env.
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:?set OPENROUTER_API_KEY in your shell or in .env}
+    ports:
+      # The server listens on 0.0.0.0 inside the container; publish on loopback only
+      # so the dashboard is not reachable from the network.
+      - "127.0.0.1:${PORT:-3000}:3000"
+    # The app only reads from OpenRouter and renders; it never writes to disk.
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
+    mem_limit: 256m

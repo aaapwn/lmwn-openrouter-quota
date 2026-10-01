@@ -29,6 +29,8 @@ const securityHeaders = [
 ];
 
 const config: NextConfig = {
+  // Self-contained server bundle for the Docker image (node server.js).
+  output: "standalone",
   poweredByHeader: false,
   reactStrictMode: true,
   async headers() {

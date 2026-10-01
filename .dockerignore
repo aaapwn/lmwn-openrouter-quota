@@ -1,0 +1,13 @@
+# Secrets must never enter the build context or any image layer.
+.env
+.env.*
+!.env.example
+node_modules
+.next
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+*.tsbuildinfo
+next-env.d.ts
