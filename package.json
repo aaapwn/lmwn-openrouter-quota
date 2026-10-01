@@ -1,0 +1,29 @@
+{
+  "name": "lmwn-openrouter-quota",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1",
+    "dev:jera": "set -a; . ../../LMP/genie-jeracloud/pos-mcp/apps/jera/.env; set +a; next dev -H 127.0.0.1",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1",
+    "start:jera": "set -a; . ../../LMP/genie-jeracloud/pos-mcp/apps/jera/.env; set +a; next start -H 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "check:secret": "node scripts/check-secret.mjs"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
